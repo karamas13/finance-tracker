@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  body{
+    @apply text-slate-200  bg-slate-900
+  }
+
+  button {
+    @apply hover:scale-110 ease-in-out duration-[0.5s]
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply px-4 py-2 text-sm  capitalize rounded-lg 
+  }
+
+  .btn-danger {
+    @apply text-slate-200  bg-red-600 border border-red-600 
+  }
+ 
+  .btn-primary {
+    @apply  bg-slate-700 border border-slate-700 text-lime-400 
+  }
+  
+  .btn-primary-outline {
+    @apply border border-lime-400 text-lime-400 
+  }
+}
