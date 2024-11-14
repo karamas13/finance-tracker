@@ -13,7 +13,7 @@ function Navigation() {
       </div>
 
       {/*Right Side Navigation*/}
-       <nav className="flex items-center gap-3">
+       <nav className="flex items-center gap-4">
         <div>
           <ImStatsBars className="text-2xl "/>
         </div>
