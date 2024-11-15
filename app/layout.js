@@ -1,6 +1,11 @@
+
+
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "./Components/Navigation";
+
+
+import FinanceContextProvider from './lib/store/finance-context';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,8 +29,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navigation />
-        {children}
+        <FinanceContextProvider>
+         <Navigation />
+         {children}
+        </FinanceContextProvider>
       </body>
     </html>
   );
