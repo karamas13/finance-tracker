@@ -39,9 +39,7 @@ export default function Home() {
   return (
  <>
    {/*Income Modal*/}
-    
    <AddIncomeModal show={showIncomeModal} onClose={setShowIncomeModal}/>
-
    {/*Income Modal*/}
 
    {/*Expenses Modal*/}
@@ -65,9 +63,7 @@ export default function Home() {
            return (
              <ExpenseItem 
               key={expense.id}
-              color={expense.color} 
-              title={expense.title} 
-              total={expense.total}
+              expense={expense}
              /> 
            )  
            
