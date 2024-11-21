@@ -1,5 +1,8 @@
 "use client"
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "./Components/Navigation";
@@ -7,6 +10,10 @@ import Navigation from "./Components/Navigation";
 
 import FinanceContextProvider from './lib/store/finance-context';
 import AuthContextProvider from "./lib/store/auth-context";
+
+import { Metadata } from 'next'
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,16 +28,20 @@ const geistMono = localFont({
 
 
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <title>Finance Tracker</title>
        <AuthContextProvider> 
          <FinanceContextProvider>
-          <Navigation />
-          {children}
+           <ToastContainer /> 
+             <Navigation />
+             {children}           
          </FinanceContextProvider>
        </AuthContextProvider> 
       </body>

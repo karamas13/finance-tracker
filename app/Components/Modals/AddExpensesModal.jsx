@@ -3,6 +3,7 @@ import { useState, useContext, useRef } from "react";
 import { financeContext } from "@/app/lib/store/finance-context";
 import { FaTrashRestoreAlt } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
 
 function AddExpensesModal({show, onClose}) {
     const [expenseAmount, setExpenseAmount] = useState("");
@@ -37,13 +38,15 @@ function AddExpensesModal({show, onClose}) {
         };
 
        try {
-        await addExpenseItem(selectedCategory, newExpense);
+       await addExpenseItem(selectedCategory, newExpense);
         
         console.log(newExpense)
         setExpenseAmount("");
         setSelectedCategory(null);
+        toast.success("Expense Added Successfully!")
        } catch(error) {
          console.log(error.message)
+         toast.error(error.message)
        }
         
     }
@@ -55,8 +58,10 @@ function AddExpensesModal({show, onClose}) {
       try{
        await addCategory({title, color, total: 0}) 
        setShowAddExpense(false);
+       toast.success("Category Created")
       } catch(error) {
         console.log(error.message)
+        toast.error(error.message)
       }
     }
    

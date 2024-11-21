@@ -6,10 +6,13 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { useState, useContext, useEffect } from 'react';
 
-import {financeContext} from '@/app/lib/store/finance-context'
+import {financeContext} from '@/app/lib/store/finance-context';
+import { authContext } from './lib/store/auth-context';
 
 import  AddIncomeModal  from './Components/Modals/AddIncomeModal';
 import AddExpensesModal from './Components/Modals/AddExpensesModal';
+
+import SignIn from './Components/SignIn';
 
 
 
@@ -17,12 +20,18 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 
+
+
+
 export default function Home() {
+
+
   const [showIncomeModal, setShowIncomeModal] = useState(false);
   const [showExpensesModal, setShowExpensesModal] = useState(false);
   const [balance, setBalance] = useState(0);
 
   const { expenses, income } = useContext(financeContext);
+  const { user, loading} = useContext(authContext);
    
   useEffect(() => {
     const newBalance = income.reduce((total, i) => {
@@ -35,6 +44,10 @@ export default function Home() {
     setBalance(newBalance);
 
   }, [expenses,income])
+
+  if(!user){
+    return <SignIn />
+  }
 
   return (
  <>
