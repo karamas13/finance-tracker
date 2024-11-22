@@ -6,6 +6,8 @@ import { auth } from "../firebase";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth"
 
+//Authentication
+
 export const authContext = createContext ({
     user: null,
     loading: false,
