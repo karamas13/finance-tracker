@@ -92,8 +92,9 @@ function AddExpensesModal({show, onClose}) {
              </div> 
               
              { showAddExpense && (
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between lg:flex-row flex-col gap-2">
               <input 
+               className=""
                type="text"
                placeholder="Enter Title"
                ref={titleRef}
@@ -104,10 +105,10 @@ function AddExpensesModal({show, onClose}) {
                className="w-24 h-10"
                ref={colorRef}
               />
-              <button onClick={() => {addCategoryHandler()}} className="btn btn-primary-outline">Create</button>
+              <button onClick={() => {addCategoryHandler()}} className="btn btn-primary-outline mx-auto">Create</button>
               <button onClick={() => {
                 setShowAddExpense(false);
-              }} className="btn btn-danger">Cancel</button>
+              }} className="btn btn-danger mx-auto">Cancel</button>
              </div> 
              )}
 

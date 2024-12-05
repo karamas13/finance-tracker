@@ -41,9 +41,9 @@ function ViewExpenseModal({show, onClose, expense}) {
   
     return (
     <Modal show={show} onClose={onClose}>
-      <div className="flex items-center justify-between">
-        <h2 className="text=4xl">{expense.title}</h2>
-        <button onClick={deleteExpenseHandler} className="btn btn-danger">Delete</button>
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="text-4xl">{expense.title}</h2>
+        <button onClick={deleteExpenseHandler} className="btn btn-danger">Delete Category</button>
       </div>
 
       <div >
